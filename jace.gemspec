@@ -6,7 +6,7 @@ require 'jace/version'
 
 Gem::Specification.new do |gem|
   gem.name                  = 'jace'
-  gem.version               = Sinclair::VERSION
+  gem.version               = Jace::VERSION
   gem.authors               = ['DarthJee']
   gem.email                 = ['darthjee@gmail.com']
   gem.homepage              = 'https://github.com/darthjee/jace'
