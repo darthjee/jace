@@ -55,7 +55,7 @@ describe Jace::Event::Executer do
       end
 
       context 'with array' do
-        let(:block)  { proc { @brothers = @age ? 2 : 3 } }
+        let(:block)  { proc { @brothers = @age ? 2 : 10 } }
         let(:before) { [:init_age, block] }
 
         let(:result) do
@@ -69,8 +69,67 @@ describe Jace::Event::Executer do
         end
 
         it 'changes state of context object by block call' do
+          expect { result }.to change(person, :brothers)
+            .from(0).to(2)
+        end
+
+        it 'changes state of context object by method call' do
           expect { result }.to change(person, :age)
             .from(nil).to(1)
+        end
+      end
+    end
+
+    context 'with after option' do
+      context 'with symbol' do
+        let(:result) do
+          described_class.call(after: :init_age, context: person) { person.age }
+        end
+
+        it 'returns result before running after code' do
+          expect(result).to be_nil
+        end
+
+        it 'changes state of context object' do
+          expect { result }.to change(person, :age)
+            .from(nil).to(1)
+        end
+      end
+
+      context 'with block' do
+        let(:block) { proc { @age = 10 } }
+
+        let(:result) do
+          described_class.call(after: block, context: person) { person.age }
+        end
+
+        it 'returns result before running after code' do
+          expect(result).to be_nil
+        end
+
+        it 'changes state of context object' do
+          expect { result }.to change(person, :age)
+            .from(nil).to(10)
+        end
+      end
+
+      context 'with array' do
+        let(:block) { proc { @brothers = @age ? 2 : 10 } }
+        let(:after) { [:init_age, block] }
+
+        let(:result) do
+          described_class.call(after: after, context: person) do
+            person.age.to_i + person.brothers
+          end
+        end
+
+        it 'returns result before running all after code' do
+          expect(result).to eq(0)
+        end
+
+        it 'changes state of context object by block call' do
+          expect { result }.to change(person, :brothers)
+            .from(0).to(2)
         end
 
         it 'changes state of context object by method call' do
