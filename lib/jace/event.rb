@@ -3,6 +3,7 @@
 # @api public
 # @author darthjee
 module Jace
-  autoload :VERSION, 'jace/version'
-  autoload :Event,   'jace/event'
+  module Event
+    autoload :Executer, 'jace/event/executer'
+  end
 end
