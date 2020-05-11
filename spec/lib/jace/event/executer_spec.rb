@@ -24,7 +24,9 @@ describe Jace::Event::Executer do
     context 'with before option' do
       context 'with symbol' do
         let(:result) do
-          described_class.call(before: :init_age, context: person) { person.age }
+          described_class.call(before: :init_age, context: person) do
+            person.age
+          end
         end
 
         it 'returns result after running before code' do

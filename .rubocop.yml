@@ -36,6 +36,14 @@ RSpec/NestedGroups:
   Exclude:
     - 'spec/integration/yard/**/*.rb'
 
+RSpec/InstanceVariable:
+  Exclude:
+    - 'spec/lib/jace/event/executer_spec.rb'
+
+Naming/MemoizedInstanceVariableName:
+  Exclude:
+    - 'spec/support/models/person.rb'
+
 Style/HashEachMethods:
   Enabled: true
 
