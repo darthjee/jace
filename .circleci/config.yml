@@ -3,7 +3,18 @@ workflows:
   version: 2
   test:
     jobs:
-      - build-and-release
+      - test
+  test-and-build:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /.*/
+      - build-and-release:
+          requires: [test]
+          filters:
+            tags:
+              only: /.*/
 jobs:
   test:
     docker:
