@@ -2,6 +2,7 @@
 
 # @api public
 # @author darthjee
-class Jace
-  autoload :VERSION, 'jace/version'
+module Jace
+  autoload :VERSION,  'jace/version'
+  autoload :Executer, 'jace/executer'
 end
