@@ -4,6 +4,12 @@ workflows:
   test:
     jobs:
       - test
+  test-and-build:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /.*/
       - build-and-release:
           requires: [test]
           filters:
@@ -52,8 +58,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Prepare Coverage Test Report
-          command: cc-test-reporter before-build
+          name: Signin
+          command: scripts/build.sh signin
       - run:
           name: Build Gem
           command: scripts/build.sh build

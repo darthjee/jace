@@ -18,6 +18,9 @@ function isTagged() {
 ACTION=$1
 
 case $ACTION in
+  "signin")
+    echo "---\n:rubygems_api_key: $RUBY_GEMS_API_KEY" ~/.gem/credentials
+    ;;
   "build")
     if $(isTagged); then
       rake build
