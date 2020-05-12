@@ -4,7 +4,6 @@ workflows:
   test:
     jobs:
       - test
-  version: 2
   test-and-build:
     jobs:
       - test:
