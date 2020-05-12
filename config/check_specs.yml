@@ -1,2 +1,3 @@
 ignore:
   - lib/jace/version.rb
+  - lib/jace.rb

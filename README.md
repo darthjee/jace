@@ -11,7 +11,7 @@ Sinclair
 
 Yard Documentation
 -------------------
-[https://www.rubydoc.info/gems/jace/0.0.2](https://www.rubydoc.info/gems/jace/0.0.2)
+[https://www.rubydoc.info/gems/jace/0.0.3](https://www.rubydoc.info/gems/jace/0.0.3)
 
 Installation
 ---------------

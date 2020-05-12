@@ -39,6 +39,7 @@ RSpec/NestedGroups:
 RSpec/InstanceVariable:
   Exclude:
     - 'spec/lib/jace/executer_spec.rb'
+    - 'spec/lib/jace/dispatcher_spec.rb'
 
 Naming/MemoizedInstanceVariableName:
   Exclude:
