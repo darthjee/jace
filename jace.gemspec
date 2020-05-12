@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.authors               = ['DarthJee']
   gem.email                 = ['darthjee@gmail.com']
   gem.homepage              = 'https://github.com/darthjee/jace'
-  gem.description           = 'Gem focused on events and triggers for meta programing'
+  gem.description           = 'Gem focused on events for meta-programing'
   gem.summary               = gem.description
   gem.required_ruby_version = '>= 2.5.0'
 
