@@ -15,10 +15,27 @@ function isTagged() {
   fi
 }
 
-if $(isTagged); then
-  rake build
-  VERSION=$(version)
-  gem push "pkg/$PROJECT-$VERSION.gem"
-else
-  echo version did not change
-fi
+ACTION=$1
+
+case $ACTION in
+  "build")
+    if $(isTagged); then
+      rake build
+    else
+      echo version did not change
+    fi
+    ;;
+  "push")
+    if $(isTagged); then
+      VERSION=$(version)
+      gem push "pkg/$PROJECT-$VERSION.gem"
+    else
+      echo version did not change
+    fi
+    ;;
+  *)
+    echo Usage:
+    echo "$0 build # builds gem"
+    echo "$0 push # pushes gem"
+    ;;
+esac
