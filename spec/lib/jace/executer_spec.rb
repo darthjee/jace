@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Jace::Event::Executer do
+describe Jace::Executer do
   let(:person) { Person.new }
 
   describe '.call' do
