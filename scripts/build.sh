@@ -19,6 +19,7 @@ ACTION=$1
 
 case $ACTION in
   "signin")
+    mkdir ~/.gem
     echo "---\n:rubygems_api_key: $RUBY_GEMS_API_KEY" > ~/.gem/credentials
     ;;
   "build")
