@@ -52,8 +52,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Prepare Coverage Test Report
-          command: cc-test-reporter before-build
+          name: Signin
+          command: scripts/build.sh signin
       - run:
           name: Build Gem
           command: scripts/build.sh build
