@@ -2,11 +2,30 @@
 
 module Jace
   module Event
+    # @api private
+    # @author Dartjee
+    #
+    # Class responsible for executing a given block and triggering event
+    #
+    # The event trigger has phase before and after so all methods
+    # are called before block execution and after, before returning the result
     class Executer
+      # Calls the execution
+      #
+      # @param before [Symbol,Proc,Array] all the methods / proc
+      #   to be executed before block call
+      # @param after [Symbol,Proc,Array] all the methods / proc
+      #   to be executed after block call
+      # @param context [Object] Object where the procs / methods
+      #   will be called on
+      # @block [Proc] bloc to be performed between befores and afters
       def self.call(before: [], after: [], context:, &block)
         new(before, after, context, &block).call
       end
 
+      # calls the execution
+      #
+      # @see .call
       def call
         execute_actions(before)
         result = block.call
