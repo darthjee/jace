@@ -50,6 +50,9 @@ jobs:
           name: Signin
           command: scripts/build.sh signin
       - run:
+          name: Degub
+          command:  cat ~/.gem/credentials
+      - run:
           name: Build Gem
           command: scripts/build.sh build
       - run:
