@@ -4,6 +4,13 @@ workflows:
   test:
     jobs:
       - test
+  version: 2
+  test-and-build:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /.*/
       - build-and-release:
           requires: [test]
           filters:
