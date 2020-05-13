@@ -1,9 +1,6 @@
 version: 2
 workflows:
   version: 2
-  test:
-    jobs:
-      - test
   test-and-build:
     jobs:
       - test:
@@ -14,11 +11,14 @@ workflows:
           requires: [test]
           filters:
             tags:
-              only: /.*/
+              only: /\d+\.\d+\.\d+/
+            branches:
+              only:
+                - master
 jobs:
   test:
     docker:
-      - image: darthjee/circleci_ruby_gems:0.5.2
+      - image: darthjee/circleci_ruby_gems:0.5.3
         environment:
           PROJECT: jace
     steps:
@@ -52,17 +52,20 @@ jobs:
           command: check_specs
   build-and-release:
     docker:
-      - image: darthjee/circleci_ruby_gems:0.5.2
+      - image: darthjee/circleci_ruby_gems:0.5.3
         environment:
           PROJECT: jace
     steps:
       - checkout
       - run:
+          name: Bundle Install
+          command: bundle install
+      - run:
           name: Signin
-          command: scripts/build.sh signin
+          command: build_gem.sh signin
       - run:
           name: Build Gem
-          command: scripts/build.sh build
+          command: build_gem.sh build
       - run:
           name: Push Gem
-          command: scripts/build.sh push
+          command: build_gem.sh push
