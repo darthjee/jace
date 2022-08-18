@@ -5,6 +5,6 @@ module Jace
   # @author Darthjee
   #
   # Class responsible for registering handlers to events
-  class Register
+  class Registry
   end
 end

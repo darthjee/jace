@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Jace::Register do
+describe Jace::Registry do
   subject(:registry) { described_class.new }
 
   describe '#register' do

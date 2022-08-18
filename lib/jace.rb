@@ -6,5 +6,5 @@ module Jace
   autoload :VERSION,    'jace/version'
   autoload :Dispatcher, 'jace/dispatcher'
   autoload :Executer,   'jace/executer'
-  autoload :Register,   'jace/register'
+  autoload :Registry,   'jace/registry'
 end
