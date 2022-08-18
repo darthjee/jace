@@ -19,7 +19,7 @@ Gem::Specification.new do |gem|
   gem.test_files            = gem.files.grep(%r{^(test|gem|features)/})
   gem.require_paths         = ['lib']
 
-  gem.add_development_dependency 'bundler',            '1.16.1'
+  gem.add_development_dependency 'bundler',            '2.3.20'
   gem.add_development_dependency 'pry',                '0.12.2'
   gem.add_development_dependency 'pry-nav',            '0.3.0'
   gem.add_development_dependency 'rake',               '13.0.1'
