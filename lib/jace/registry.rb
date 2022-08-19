@@ -40,9 +40,8 @@ module Jace
     #     do_something_before
     #   end
     def register(event, instant = :after, &block)
-      registry[event.to_sym] ||= {}
-      registry[event.to_sym][instant] ||= []
-      registry[event.to_sym][instant] << block
+      registry[event.to_sym] ||= Dispatcher.new
+      registry[event.to_sym].send(instant) << block
     end
 
     # Triggers an event
@@ -72,7 +71,13 @@ module Jace
     #   # puts 'doing something middle',
     #   # puts 'doing something after'
     def trigger(event, context, &block)
-      Dispatcher.new(registry[event.to_sym] || {}).dispatch(context, &block)
+      dispatcher_for(event).dispatch(context, &block)
+    end
+
+    private
+
+    def dispatcher_for(event)
+      registry[event.to_sym] || Dispatcher.new
     end
   end
 end
