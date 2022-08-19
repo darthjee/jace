@@ -33,7 +33,11 @@ module Jace
     #   registry = described_class.new
     #
     #   registry.register(:the_event) do
-    #     do_something
+    #     do_something_after
+    #   end
+    #
+    #   registry.register(:the_event, :before) do
+    #     do_something_before
     #   end
     def register(event, instant = :after, &block)
       registry[event.to_sym] ||= {}
