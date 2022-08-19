@@ -50,6 +50,27 @@ module Jace
     # @param context [Object] context where the events will be ran
     #
     # @return [Object] the result of the block call
+    #
+    # @example
+    #   class SomeContext
+    #     def do_something(instant)
+    #       puts "doing something #{instant}"
+    #     end
+    #   end
+    #
+    #   registry = described_class.new
+    #   context = SomeContext.new
+    #
+    #   registry.register(:the_event) { do_something(:after) }
+    #   registry.register(:the_event, :before) { do_something(:before) }
+    #
+    #   registry.trigger(:the_event, context) do
+    #    context.do_something(:middle)
+    #   end
+    #
+    #   # puts 'doing something before',
+    #   # puts 'doing something middle',
+    #   # puts 'doing something after'
     def trigger(event, context, &block)
       Dispatcher.new(registry[event.to_sym] || {}).dispatch(context, &block)
     end
