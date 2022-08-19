@@ -15,13 +15,20 @@ rules:
     exclude: []
   ExampleTag:
     enabled: true
-    exclude: []
+    exclude:
+      - Jace::Registry#registry
+      - Jace::Registry#events
   ReturnTag:
     enabled: true
-    exclude: []
+    exclude:
+      - Jace::Executer#before
+      - Jace::Executer#after
   Summary::Presence:
     enabled: true
-    exclude: []
+    exclude:
+      - Jace::Dispatcher#initialize
+      - Jace::Executer#initialize
+      - Jace::Registry#initialize
   Summary::Length:
     enabled: true
     exclude: []

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Jace
-  # @api public
+  # @api private
   # @author Darthjee
   #
   # Class responsible for dispatching the call of events
@@ -34,5 +34,21 @@ module Jace
     private
 
     attr_reader :before, :after
+
+    # @method before
+    # @private
+    # @api private
+    #
+    # Contains a list of event handlers to be called before
+    #
+    # @return [Array<Object>] list of handlers
+
+    # @method after
+    # @private
+    # @api private
+    #
+    # Contains a list of event handlers to be called after
+    #
+    # @return [Array<Object>] list of handlers
   end
 end
