@@ -51,6 +51,44 @@ module Jace
 
     attr_reader :before, :after, :context, :block
 
+    # @method before
+    # @private
+    # @api private
+    #
+    # Contains a list of event handlers to be called before
+    #
+    # @return (see Jace::Dispatcher#before)
+
+    # @method after
+    # @private
+    # @api private
+    #
+    # Contains a list of event handlers to be called after
+    #
+    # @return (see Jace::Dispatcher#after)
+
+    # @method context
+    # @private
+    # @api private
+    #
+    # context where the events handlers will be executed
+    #
+    # all the method calls inside the event handler will be evaluated
+    # from within the context
+    #
+    # @return [Object]
+
+    # @method block
+    # @private
+    # @api private
+    #
+    # block to be executed representing the event
+    #
+    # the block is executed after the +before+ handlers
+    # and before the +after+ handlers
+    #
+    # @return [Proc]
+
     # @private
     #
     # Perform actions from list
