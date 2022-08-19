@@ -85,6 +85,47 @@ describe Jace::Registry do
           .by([:event_name])
       end
     end
+
+    context 'when registering for another instant' do
+      let(:expected_registry) do
+        {
+          event_name: { before: [Proc] },
+        }
+      end
+
+      it 'adds even a callback to the event registry' do
+        expect { registry.register(event_name, :before) {} }
+          .to change(registry, :registry)
+          .to(expected_registry)
+      end
+
+      it 'adds event to event list' do
+        expect { registry.register(event_name) {} }
+          .to change(registry, :events)
+          .by([:event_name])
+      end
+    end
+
+    context 'when registering for another instant of an exiosting event' do
+      let(:expected_registry) do
+        {
+          event_name: { before: [Proc], after: [Proc] },
+        }
+      end
+
+      before { registry.register(event_name, :after) {} }
+
+      it 'adds even a callback to the event registry' do
+        expect { registry.register(event_name, :before) {} }
+          .to change(registry, :registry)
+          .to(expected_registry)
+      end
+
+      it 'does not add event to event list' do
+        expect { registry.register(event_name) {} }
+          .not_to(change(registry, :events))
+      end
+    end
   end
 
   describe '#trigger' do
