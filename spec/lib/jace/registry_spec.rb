@@ -92,6 +92,32 @@ describe Jace::Registry do
       end
     end
 
+    context 'when many event handlers have been registered' do
+      before do
+        allow(context).to receive(:method_call)
+        allow(context).to receive(:another_method_call)
+        allow(context).to receive(:other_method)
+
+        registry.register(event_name) { method_call  }
+        registry.register(event_name) { another_method_call  }
+      end
+
+      it "execute the event handler" do
+        registry.trigger(event_name, context) {}
+        expect(context).to have_received(:method_call)
+      end
+
+      it "execute the other event handler" do
+        registry.trigger(event_name, context) {}
+        expect(context).to have_received(:another_method_call)
+      end
+
+      it 'execute the block' do
+        registry.trigger(event_name, context) { context.other_method }
+        expect(context).to have_received(:other_method).once
+      end
+    end
+
     context 'when another event handler has been registered' do
       before do
         allow(context).to receive(:method_call)
