@@ -89,7 +89,7 @@ describe Jace::Registry do
     context 'when registering for another instant' do
       let(:expected_registry) do
         {
-          event_name: { before: [Proc] },
+          event_name: { before: [Proc] }
         }
       end
 
@@ -109,7 +109,7 @@ describe Jace::Registry do
     context 'when registering for another instant of an exiosting event' do
       let(:expected_registry) do
         {
-          event_name: { before: [Proc], after: [Proc] },
+          event_name: { before: [Proc], after: [Proc] }
         }
       end
 
