@@ -24,6 +24,7 @@ rules:
     exclude:
       - Jace::Dispatcher#initialize
       - Jace::Executer#initialize
+      - Jace::Registry#initialize
   Summary::Length:
     enabled: true
     exclude: []
