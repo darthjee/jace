@@ -18,16 +18,43 @@ Installation
 
 - Install it
 
-```ruby
+```bash
   gem install jace
 ```
 
 - Or add Sinclair to your `Gemfile` and `bundle install`:
 
-```ruby
+```bash
   gem 'jace'
 ```
 
 ```bash
   bundle install jace
+```
+
+Using
+-----
+
+Initialize a registry, register event handlers nad trigger events
+
+```ruby
+  class SomeContext
+    def do_something(instant)
+      puts "doing something #{instant}"
+    end
+  end
+
+  registry = described_class.new
+  context = SomeContext.new
+
+  registry.register(:the_event) { do_something(:after) }
+  registry.register(:the_event, :before) { do_something(:before) }
+
+  registry.trigger(:the_event, context) do
+   context.do_something(:middle)
+  end
+
+  # puts 'doing something before',
+  # puts 'doing something middle',
+  # puts 'doing something after'
 ```
