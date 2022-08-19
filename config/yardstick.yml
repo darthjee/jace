@@ -21,7 +21,9 @@ rules:
     exclude: []
   Summary::Presence:
     enabled: true
-    exclude: []
+    exclude:
+      - Jace::Dispatcher#initialize
+      - Jace::Executer#initialize
   Summary::Length:
     enabled: true
     exclude: []
