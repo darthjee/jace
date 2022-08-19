@@ -89,7 +89,7 @@ describe Jace::Registry do
 
   describe '#trigger' do
     let(:event_name) { :event_name }
-    let(:context)    { double('context') }
+    let(:context)    { instance_double(Context) }
 
     context 'when an event handler has been registered' do
       before do
