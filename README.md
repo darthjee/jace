@@ -1,5 +1,5 @@
-Sinclair
-========
+Jace
+====
 [![Code Climate](https://codeclimate.com/github/darthjee/jace/badges/gpa.svg)](https://codeclimate.com/github/darthjee/jace)
 [![Test Coverage](https://codeclimate.com/github/darthjee/jace/badges/coverage.svg)](https://codeclimate.com/github/darthjee/jace/coverage)
 [![Issue Count](https://codeclimate.com/github/darthjee/jace/badges/issue_count.svg)](https://codeclimate.com/github/darthjee/jace)
@@ -12,6 +12,12 @@ Sinclair
 Yard Documentation
 -------------------
 [https://www.rubydoc.info/gems/jace/0.0.3](https://www.rubydoc.info/gems/jace/0.0.3)
+
+Jace is designed to have a semi event driven development
+
+Using `Jace::Registry`, event handlers can be registered to events, and when an event
+is triggered, the block that triggers it is given to Jace, which will triger, around it,
+the +before+ and +after+ handlers
 
 Installation
 ---------------
