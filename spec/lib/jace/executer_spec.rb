@@ -152,7 +152,9 @@ describe Jace::Executer do
 
       context 'when handlers are given' do
         let(:result) do
-          described_class.call(before: :init_age, after: :init_height, context: person)
+          described_class.call(
+            before: :init_age, after: :init_height, context: person
+          )
         end
 
         it do
