@@ -15,7 +15,9 @@ rules:
     exclude: []
   ExampleTag:
     enabled: true
-    exclude: []
+    exclude:
+      - Jace::Registry#registry
+      - Jace::Registry#events
   ReturnTag:
     enabled: true
     exclude:
