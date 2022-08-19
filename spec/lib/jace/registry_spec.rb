@@ -91,5 +91,16 @@ describe Jace::Registry do
         expect(context).to have_received(:other_method)
       end
     end
+
+    context 'when an event handler has not been registered' do
+      before do
+        allow(context).to receive(:other_method)
+      end
+
+      it 'execute the block' do
+        registry.trigger(event_name, context) { context.other_method }
+        expect(context).to have_received(:other_method)
+      end
+    end
   end
 end

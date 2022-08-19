@@ -21,7 +21,7 @@ module Jace
     end
 
     def trigger(event, context, &block)
-      Dispatcher.new(registry[event.to_sym]).dispatch(context, &block)
+      Dispatcher.new(registry[event.to_sym] || {}).dispatch(context, &block)
     end
   end
 end
