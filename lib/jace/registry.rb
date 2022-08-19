@@ -51,7 +51,7 @@ module Jace
     #
     # @return [Object] the result of the block call
     #
-    # @example
+    # @example triggering an event
     #   class SomeContext
     #     def do_something(instant)
     #       puts "doing something #{instant}"
