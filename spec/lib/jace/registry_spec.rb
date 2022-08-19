@@ -85,6 +85,47 @@ describe Jace::Registry do
           .by([:event_name])
       end
     end
+
+    context 'when registering for another instant' do
+      let(:expected_registry) do
+        {
+          event_name: { before: [Proc] }
+        }
+      end
+
+      it 'adds even a callback to the event registry' do
+        expect { registry.register(event_name, :before) {} }
+          .to change(registry, :registry)
+          .to(expected_registry)
+      end
+
+      it 'adds event to event list' do
+        expect { registry.register(event_name) {} }
+          .to change(registry, :events)
+          .by([:event_name])
+      end
+    end
+
+    context 'when registering for another instant of an exiosting event' do
+      let(:expected_registry) do
+        {
+          event_name: { before: [Proc], after: [Proc] }
+        }
+      end
+
+      before { registry.register(event_name, :after) {} }
+
+      it 'adds even a callback to the event registry' do
+        expect { registry.register(event_name, :before) {} }
+          .to change(registry, :registry)
+          .to(expected_registry)
+      end
+
+      it 'does not add event to event list' do
+        expect { registry.register(event_name) {} }
+          .not_to(change(registry, :events))
+      end
+    end
   end
 
   describe '#trigger' do
@@ -175,6 +216,30 @@ describe Jace::Registry do
         registry.trigger(event_name, context)
 
         expect(context).to have_received(:method_call)
+      end
+    end
+
+    describe 'order execution' do
+      let(:context) { SomeContext.new }
+      let(:expected_texts) do
+        [
+          'doing something before',
+          'doing something middle',
+          'doing something after'
+        ]
+      end
+
+      before do
+        registry.register(:the_event) { do_something(:after) }
+        registry.register(:the_event, :before) { do_something(:before) }
+      end
+
+      it 'runs the event handlers in order' do
+        registry.trigger(:the_event, context) do
+          context.do_something(:middle)
+        end
+
+        expect(context.text).to eq(expected_texts)
       end
     end
   end
