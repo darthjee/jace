@@ -34,5 +34,21 @@ module Jace
     private
 
     attr_reader :before, :after
+
+    # @method before
+    # @private
+    # @api private
+    #
+    # Contains a list of event handlers to be called before
+    #
+    # @return [Array<Object>] list of handlers
+
+    # @method after
+    # @private
+    # @api private
+    #
+    # Contains a list of event handlers to be called after
+    #
+    # @return [Array<Object>] list of handlers
   end
 end
