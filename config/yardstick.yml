@@ -18,7 +18,9 @@ rules:
     exclude: []
   ReturnTag:
     enabled: true
-    exclude: []
+    exclude:
+      - Jace::Executer#before
+      - Jace::Executer#after
   Summary::Presence:
     enabled: true
     exclude:
