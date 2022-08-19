@@ -28,6 +28,13 @@ module Jace
     # @param block [Proc] block to be executed when the event is called
     #
     # @return [Array<Proc>]
+    #
+    # @example registering an event
+    #   registry = described_class.new
+    #
+    #   registry.register(:the_event) do
+    #     do_something
+    #   end
     def register(event, instant = :after, &block)
       registry[event.to_sym] ||= {}
       registry[event.to_sym][instant] ||= []
