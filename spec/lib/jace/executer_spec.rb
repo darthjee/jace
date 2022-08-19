@@ -140,5 +140,37 @@ describe Jace::Executer do
         end
       end
     end
+
+    context 'when no block is provided' do
+      let(:result) do
+        described_class.call(context: person)
+      end
+
+      it do
+        expect(result).to be_nil
+      end
+
+      context 'when handlers are given' do
+        let(:result) do
+          described_class.call(before: :init_age, after: :init_height, context: person)
+        end
+
+        it do
+          expect(result).to be_nil
+        end
+
+        it 'calls before handler' do
+          expect { result }
+            .to change(person, :age)
+            .to(1)
+        end
+
+        it 'calls after handler' do
+          expect { result }
+            .to change(person, :height)
+            .to(178)
+        end
+      end
+    end
   end
 end

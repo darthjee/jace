@@ -31,7 +31,7 @@ module Jace
     # @return (see .call)
     def call
       execute_actions(before)
-      result = block.call
+      result = block.call if block
       execute_actions(after)
 
       result
