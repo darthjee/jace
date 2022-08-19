@@ -8,7 +8,7 @@ describe Jace::Registry do
   describe '#register' do
     let(:event_name) { :event_name }
     let(:expected_registry) do
-      { event_name: { after: [Proc] } }
+      { event_name: Jace::Dispatcher }
     end
 
     context 'when event is a symbol' do
@@ -28,7 +28,7 @@ describe Jace::Registry do
     context 'when event is a string' do
       let(:event_name) { 'event_name' }
       let(:expected_registry) do
-        { event_name: { after: [Proc] } }
+        { event_name: Jace::Dispatcher }
       end
 
       it 'adds even to events registry' do
@@ -45,16 +45,11 @@ describe Jace::Registry do
     end
 
     context 'when the event was already registerd' do
-      let(:expected_registry) do
-        { event_name: { after: [Proc, Proc] } }
-      end
-
       before { registry.register(event_name) {} }
 
-      it 'adds even a callback to the event registry' do
+      it 'does not repace dispatcher' do
         expect { registry.register(event_name) {} }
-          .to change(registry, :registry)
-          .to(expected_registry)
+          .not_to change(registry, :registry)
       end
 
       it 'adds event to event list' do
@@ -66,8 +61,8 @@ describe Jace::Registry do
     context 'when another event was already registerd' do
       let(:expected_registry) do
         {
-          event_name: { after: [Proc] },
-          other_event_name: { after: [Proc] }
+          event_name: Jace::Dispatcher,
+          other_event_name: Jace::Dispatcher
         }
       end
 
@@ -89,7 +84,7 @@ describe Jace::Registry do
     context 'when registering for another instant' do
       let(:expected_registry) do
         {
-          event_name: { before: [Proc] }
+          event_name: Jace::Dispatcher
         }
       end
 
@@ -115,10 +110,9 @@ describe Jace::Registry do
 
       before { registry.register(event_name, :after) {} }
 
-      it 'adds even a callback to the event registry' do
+      it 'does not repace dispatcher' do
         expect { registry.register(event_name, :before) {} }
-          .to change(registry, :registry)
-          .to(expected_registry)
+          .not_to change(registry, :registry)
       end
 
       it 'does not add event to event list' do
