@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Jace
-  # @api public
+  # @api private
   # @author Darthjee
   #
   # Class responsible for dispatching the call of events
