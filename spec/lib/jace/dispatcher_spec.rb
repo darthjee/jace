@@ -153,5 +153,36 @@ describe Jace::Dispatcher do
         end
       end
     end
+
+    context 'when no block is provided' do
+      let(:result) do
+        dispatcher.dispatch(person)
+      end
+
+      it do
+        expect(result).to be_nil
+      end
+
+      context 'when handlers are given' do
+        let(:before) { :init_age }
+        let(:after)  { :init_height }
+
+        it do
+          expect(result).to be_nil
+        end
+
+        it 'calls before handler' do
+          expect { result }
+            .to change(person, :age)
+            .to(1)
+        end
+
+        it 'calls after handler' do
+          expect { result }
+            .to change(person, :height)
+            .to(178)
+        end
+      end
+    end
   end
 end
