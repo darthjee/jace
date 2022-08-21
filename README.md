@@ -11,7 +11,7 @@ Jace
 
 Yard Documentation
 -------------------
-[https://www.rubydoc.info/gems/jace/0.1.0](https://www.rubydoc.info/gems/jace/0.1.0)
+[https://www.rubydoc.info/gems/jace/0.1.1](https://www.rubydoc.info/gems/jace/0.1.1)
 
 Jace is designed to have a semi event driven development
 
