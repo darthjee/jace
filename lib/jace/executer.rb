@@ -108,18 +108,14 @@ module Jace
 
     # @private
     #
-    # Transforms the input object into a Proc
+    # Transforms the input objects into hadlers
     #
-    # @param list [Symbol,Proc] method or proc to be transformed
+    # @param list [Array<Symbol,Proc>] method or proc to be transformed
     #
-    # @return [Proc]
+    # @return [Array<Handler>]
     def actions(list)
       list.map do |entry|
-        if entry.is_a?(Proc)
-          proc(&entry)
-        else
-          proc { send(entry) }
-        end
+        Handler.new(entry)
       end
     end
   end
