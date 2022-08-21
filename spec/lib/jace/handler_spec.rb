@@ -55,7 +55,7 @@ describe Jace::Handler do
         before { allow(context).to receive(:method_call) }
 
         it 'calls the block' do
-          context.instance_eval(&(handler.to_proc))
+          context.instance_eval(&handler.to_proc)
 
           expect(context).to have_received(:method_call).once
         end
@@ -73,7 +73,7 @@ describe Jace::Handler do
         before { allow(context).to receive(:method_call) }
 
         it 'calls the block' do
-          context.instance_eval(&(handler.to_proc))
+          context.instance_eval(&handler.to_proc)
 
           expect(context).to have_received(:method_call).once
         end
@@ -91,7 +91,7 @@ describe Jace::Handler do
         before { allow(context).to receive(:method_call) }
 
         it 'calls the block' do
-          context.instance_eval(&(handler.to_proc))
+          context.instance_eval(&handler.to_proc)
 
           expect(context).to have_received(:method_call).once
         end

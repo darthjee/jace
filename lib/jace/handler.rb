@@ -7,9 +7,10 @@ module Jace
     attr_reader :block
 
     def initialize(method_name = nil, &block)
-      return @block = block if block
+      if block
+        @block = block if block
 
-      if method_name.is_a?(Proc)
+      elsif method_name.is_a?(Proc)
         @block = method_name
       else
         @block = proc { send(method_name) }
