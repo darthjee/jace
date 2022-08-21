@@ -19,5 +19,10 @@ module Jace
     def call(context)
       context.instance_eval(&block)
     end
+
+    def to_proc
+      handler = self
+      proc { |context| handler.call(context) }
+    end
   end
 end
