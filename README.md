@@ -50,7 +50,7 @@ Initialize a registry, register event handlers nad trigger events
     end
   end
 
-  registry = described_class.new
+  registry = Jace::Registry.new
   context = SomeContext.new
 
   registry.register(:the_event) { do_something(:after) }
