@@ -18,6 +18,10 @@ Using `Jace::Registry`, event handlers can be registered to events, and when an 
 is triggered, the block that triggers it is given to Jace, which will triger, around it,
 the +before+ and +after+ handlers
 
+**Current Release**: [0.1.1](https://github.com/darthjee/jace/tree/0.1.1)
+
+**Next release**: [0.2.0](https://github.com/darthjee/jace/compare/0.1.1...master)
+
 Installation
 ---------------
 
