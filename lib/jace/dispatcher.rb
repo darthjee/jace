@@ -22,12 +22,12 @@ module Jace
     # @block [Proc] bloc to be performed between befores and afters
     #
     # @return [Object] result of block call
-    def dispatch(context, &block)
+    def dispatch(context, &)
       Executer.call(
         before: before,
         after: after,
         context: context,
-        &block
+        &
       )
     end
 

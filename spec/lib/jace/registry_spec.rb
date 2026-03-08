@@ -13,13 +13,13 @@ describe Jace::Registry do
 
     context 'when event is a symbol' do
       it 'adds even to events registry' do
-        expect { registry.register(event_name) {} }
+        expect { registry.register(event_name) { nil } }
           .to change(registry, :registry)
           .to(expected_registry)
       end
 
       it 'adds event to event list' do
-        expect { registry.register(event_name) {} }
+        expect { registry.register(event_name) { nil } }
           .to change(registry, :events)
           .by([:event_name])
       end
@@ -32,28 +32,28 @@ describe Jace::Registry do
       end
 
       it 'adds even to events registry' do
-        expect { registry.register(event_name) {} }
+        expect { registry.register(event_name) { nil } }
           .to change(registry, :registry)
           .to(expected_registry)
       end
 
       it 'adds event to event list' do
-        expect { registry.register(event_name) {} }
+        expect { registry.register(event_name) { nil } }
           .to change(registry, :events)
           .by([:event_name])
       end
     end
 
     context 'when the event was already registerd' do
-      before { registry.register(event_name) {} }
+      before { registry.register(event_name) { nil } }
 
       it 'does not repace dispatcher' do
-        expect { registry.register(event_name) {} }
+        expect { registry.register(event_name) { nil } }
           .not_to change(registry, :registry)
       end
 
       it 'adds event to event list' do
-        expect { registry.register(event_name) {} }
+        expect { registry.register(event_name) { nil } }
           .not_to(change(registry, :events))
       end
     end
@@ -66,16 +66,16 @@ describe Jace::Registry do
         }
       end
 
-      before { registry.register(:other_event_name) {} }
+      before { registry.register(:other_event_name) { nil } }
 
       it 'adds even a callback to the event registry' do
-        expect { registry.register(event_name) {} }
+        expect { registry.register(event_name) { nil } }
           .to change(registry, :registry)
           .to(expected_registry)
       end
 
       it 'adds event to event list' do
-        expect { registry.register(event_name) {} }
+        expect { registry.register(event_name) { nil } }
           .to change(registry, :events)
           .by([:event_name])
       end
@@ -89,13 +89,13 @@ describe Jace::Registry do
       end
 
       it 'adds even a callback to the event registry' do
-        expect { registry.register(event_name, :before) {} }
+        expect { registry.register(event_name, :before) { nil } }
           .to change(registry, :registry)
           .to(expected_registry)
       end
 
       it 'adds event to event list' do
-        expect { registry.register(event_name) {} }
+        expect { registry.register(event_name) { nil } }
           .to change(registry, :events)
           .by([:event_name])
       end
@@ -108,15 +108,15 @@ describe Jace::Registry do
         }
       end
 
-      before { registry.register(event_name, :after) {} }
+      before { registry.register(event_name, :after) { nil } }
 
       it 'does not repace dispatcher' do
-        expect { registry.register(event_name, :before) {} }
+        expect { registry.register(event_name, :before) { nil } }
           .not_to change(registry, :registry)
       end
 
       it 'does not add event to event list' do
-        expect { registry.register(event_name) {} }
+        expect { registry.register(event_name) { nil } }
           .not_to(change(registry, :events))
       end
     end
@@ -134,7 +134,7 @@ describe Jace::Registry do
       end
 
       it 'execute the event handler' do
-        registry.trigger(event_name, context) {}
+        registry.trigger(event_name, context) { nil }
         expect(context).to have_received(:method_call)
       end
 
@@ -155,12 +155,12 @@ describe Jace::Registry do
       end
 
       it 'execute the event handler' do
-        registry.trigger(event_name, context) {}
+        registry.trigger(event_name, context) { nil }
         expect(context).to have_received(:method_call)
       end
 
       it 'execute the other event handler' do
-        registry.trigger(event_name, context) {}
+        registry.trigger(event_name, context) { nil }
         expect(context).to have_received(:another_method_call)
       end
 
@@ -178,7 +178,7 @@ describe Jace::Registry do
       end
 
       it 'does not execute the event handler' do
-        registry.trigger(event_name, context) {}
+        registry.trigger(event_name, context) { nil }
         expect(context).not_to have_received(:method_call)
       end
 

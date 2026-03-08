@@ -70,8 +70,8 @@ module Jace
     #   # puts 'doing something before',
     #   # puts 'doing something middle',
     #   # puts 'doing something after'
-    def trigger(event, context, &block)
-      dispatcher_for(event).dispatch(context, &block)
+    def trigger(event, context, &)
+      dispatcher_for(event).dispatch(context, &)
     end
 
     private
