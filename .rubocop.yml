@@ -54,3 +54,6 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: true
+
+Gemspec/RequireMFA:
+  Enabled: false
