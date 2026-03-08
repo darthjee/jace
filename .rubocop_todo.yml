@@ -14,12 +14,6 @@ Gemspec/RequireMFA:
   Exclude:
     - 'jace.gemspec'
 
-# Offense count: 19
-# Configuration parameters: AllowComments, AllowEmptyLambdas.
-Lint/EmptyBlock:
-  Exclude:
-    - 'spec/lib/jace/registry_spec.rb'
-
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
 Lint/RedundantDirGlobSort:
