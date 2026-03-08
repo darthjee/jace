@@ -20,7 +20,7 @@ module Jace
     # @block [Proc] bloc to be performed between befores and afters
     #
     # @return [Object] result of block call
-    def self.call(before: [], after: [], context:, &block)
+    def self.call(context:, before: [], after: [], &block)
       new(before, after, context, &block).call
     end
 

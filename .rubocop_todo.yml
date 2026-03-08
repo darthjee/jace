@@ -30,9 +30,3 @@ Style/ArgumentsForwarding:
     - 'lib/jace/dispatcher.rb'
     - 'lib/jace/executer.rb'
     - 'lib/jace/registry.rb'
-
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Style/KeywordParametersOrder:
-  Exclude:
-    - 'lib/jace/executer.rb'
