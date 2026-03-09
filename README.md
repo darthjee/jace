@@ -20,7 +20,7 @@ the +before+ and +after+ handlers
 
 **Current Release**: [0.1.1](https://github.com/darthjee/jace/tree/0.1.1)
 
-**Next release**: [0.2.0](https://github.com/darthjee/jace/compare/0.1.1...master)
+**Next release**: [0.2.0](https://github.com/darthjee/jace/compare/0.1.1...main)
 
 Installation
 ---------------
