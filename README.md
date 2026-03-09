@@ -6,7 +6,7 @@ Jace
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/49845fb44afa4f658460e52cccce84b8)](https://app.codacy.com/gh/darthjee/jace/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 [![Inline docs](http://inch-ci.org/github/darthjee/jace.svg?branch=master)](http://inch-ci.org/github/darthjee/jace)
 
-![jace](https://raw.githubusercontent.com/darthjee/jace/master/jace.jpg)
+![jace](https://raw.githubusercontent.com/darthjee/jace/master/jace.png)
 
 Yard Documentation
 -------------------
