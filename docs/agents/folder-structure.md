@@ -7,8 +7,8 @@
 | `lib/`          | Gem source code — `Jace::Registry`, `Jace::Dispatcher`, `Jace::Executer`, `Jace::Handler`, and version info. |
 | `spec/`         | RSpec test suite — unit specs (mirroring `lib/`) and integration specs. |
 | `config/`       | Tooling config: `check_specs.yml` (spec-coverage exclusions), `yardstick.rb`/`yardstick.yml` (YARD doc-coverage), `rubycritc.rb`. |
-| `docs/`         | Project documentation, including the `agents/` folder consumed by AI coding agents. |
-| `.github/`      | GitHub-specific files: Copilot instructions, PR/commit templates, and `jace-usage.md`. |
+| `docs/`         | Project documentation, including the `agents/` folder consumed by AI coding agents, and `guides/` (usage guides, e.g. `jace-usage.md`). |
+| `.github/`      | GitHub-specific files: Copilot instructions and PR/commit templates. |
 | `.circleci/`    | CircleCI pipeline configuration (`config.yml`). |
 | `AGENTS.md`     | Shared instructions for AI coding agents (Claude, Copilot). |
 | `CLAUDE.md`     | Pointer to `AGENTS.md`. |
@@ -42,6 +42,13 @@
 | `issue-enhancement.md` | Guidance for enhancing/refining issues. |
 | `issues/`              | Structured issue files consumed by the planning/fixing pipeline. |
 | `plans/`               | Implementation plans generated for issues. |
+
+## docs/guides
+
+| Subdirectory / File | Description |
+|----------------------|-------------|
+| `jace-usage.md` | Hub page for using the Jace gem; links out to the topic pages below. |
+| `jace/`         | Topic pages split out of `jace-usage.md` (installation, core concepts, basic usage, handlers, integration pattern, execution model, API reference). |
 
 ## spec
 
