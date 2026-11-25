@@ -1,6 +1,6 @@
-FROM darthjee/scripts:0.6.0 as scripts
+FROM darthjee/scripts:0.15.0 as scripts
 
-FROM darthjee/ruby_331:1.1.0 as base
+FROM darthjee/ruby_342:1.0.0 as base
 
 COPY --chown=app:app ./ /home/app/app/
 
@@ -19,3 +19,4 @@ FROM base
 
 COPY --chown=app:app --from=builder /home/app/bundle/ /usr/local/bundle/
 RUN bundle install
+
