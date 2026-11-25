@@ -6,7 +6,7 @@ describe Jace::Registry do
   describe 'yard' do
     subject(:registry) { described_class.new }
 
-    # rubocop:disable RSpec/NoExpectationExample
+    # rubocop:disable-next RSpec/NoExpectationExample
     describe '#register' do
       it 'register a new handler for an event' do
         registry.register(:the_event) do
@@ -20,7 +20,6 @@ describe Jace::Registry do
         end
       end
     end
-    # rubocop:enable RSpec/NoExpectationExample
 
     describe '#trigger' do
       let(:context) { SomeContext.new }

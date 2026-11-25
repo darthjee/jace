@@ -10,7 +10,7 @@ Jace
 
 Yard Documentation
 -------------------
-[https://www.rubydoc.info/gems/jace/0.1.1](https://www.rubydoc.info/gems/jace/0.1.2)
+[https://www.rubydoc.info/gems/jace/1.0.0](https://www.rubydoc.info/gems/jace/1.0.0)
 
 Jace is designed to have a semi event driven development
 
@@ -18,9 +18,9 @@ Using `Jace::Registry`, event handlers can be registered to events, and when an 
 is triggered, the block that triggers it is given to Jace, which will triger, around it,
 the +before+ and +after+ handlers
 
-**Current Release**: [0.1.2](https://github.com/darthjee/jace/tree/0.1.2)
+**Current Release**: [1.0.0](https://github.com/darthjee/jace/tree/1.0.0)
 
-**Next release**: [0.2.0](https://github.com/darthjee/jace/compare/0.1.2...main)
+**Next release**: [1.1.0](https://github.com/darthjee/jace/compare/1.0.0...main)
 
 Installation
 ---------------
