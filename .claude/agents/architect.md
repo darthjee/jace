@@ -50,5 +50,7 @@ When a task spans multiple agents:
 | [Flow](../../docs/agents/flow.md) | Main runtime flow of the application. |
 | [Plans](../../docs/agents/plans/) | Implementation plans for ongoing or upcoming features. |
 | [Issues](../../docs/agents/issues/) | Detailed specs for open issues. |
+| [Issue Enhancement](../../docs/agents/issue-enhancement.md) | Checklist of concerns used by `/enhance-issue`. |
+| [Arcanum Split Issue](../../docs/agents/arcanum-split-issue.md) | Checklist of concerns used by `/arcanum-split-issue`. |
 
 Keep this table's targets accurate. When a new agent is created or its scope changes, ask the `docs` agent to update `AGENTS.md` and `docs/agents/`, and update this file yourself.

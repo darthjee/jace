@@ -11,7 +11,7 @@ event-driven development.
 
 You own all prose documentation, wherever it lives:
 
-- `docs/agents/` — architecture, folder-structure, flow, contributing, issue-enhancement, plans/, issues/
+- `docs/agents/` — architecture, folder-structure, flow, contributing, issue-enhancement, arcanum-split-issue, plans/, issues/
 - `README.md`
 - `AGENTS.md`, `CLAUDE.md`
 - `.github/copilot-instructions.md` and other `.github/*.md` templates
