@@ -40,6 +40,7 @@
 | `flow.md`               | Key workflows/data flow through the system. |
 | `folder-structure.md`  | This file — top-level directory layout. |
 | `issue-enhancement.md` | Guidance for enhancing/refining issues. |
+| `arcanum-split-issue.md` | Concerns to weigh when splitting a broad issue into sub-issues. |
 | `issues/`              | Structured issue files consumed by the planning/fixing pipeline. |
 | `plans/`               | Implementation plans generated for issues. |
 

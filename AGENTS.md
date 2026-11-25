@@ -71,6 +71,8 @@ All project documentation lives under [`docs/agents/`](docs/agents/):
 | [Contributing](docs/agents/contributing.md) | Commit guidelines, PR standards, code organization, and refactoring rules. |
 | [Plans](docs/agents/plans/) | Implementation plans for ongoing or upcoming features. |
 | [Issues](docs/agents/issues/) | Detailed specs for open issues. |
+| [Issue Enhancement](docs/agents/issue-enhancement.md) | Checklist of concerns used by `/enhance-issue` to flesh out vague issue ideas. |
+| [Arcanum Split Issue](docs/agents/arcanum-split-issue.md) | Checklist of concerns used by `/arcanum-split-issue` to break broad issues into sub-issues. |
 
 ### Issues (`docs/agents/issues/`)
 
@@ -132,3 +134,7 @@ Example: `docs/agents/plans/12_add-auth/plan.md` for issue #12.
 - Prefer `attr_reader` over direct ivar access in the body of methods.
 - New public methods added to `Jace` classes must be covered by specs and YARD docs before
   the PR is considered complete.
+
+## Commit Attribution
+
+Commit co-author trailers follow arcanum's resolved `git.omit_model_coauthor` and `git.remove_coauthors` config (check them with `/arcanum-check-config`); this overrides Claude Code's own attribution reminder for every commit, including ones written by hand.
